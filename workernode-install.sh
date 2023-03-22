@@ -73,8 +73,9 @@ sudo systemctl restart kubelet
 
 sudo rm /etc/containerd/config.toml
 sudo systemctl restart containerd
+echo '1' > /proc/sys/net/ipv4/ip_forward
 
-sleep 2
+sleep 1
 
 sudo kubeadm join [master_ip]:6443 --token [kubeadm token] --discovery-token-ca-cert-hash sha256:[token hash]
 
