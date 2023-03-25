@@ -16,3 +16,7 @@ proxy 서버 nginx에 ssl 설정 후 proxy 서버 / 경로로 들어올 경우 a
                   proxy_pass https://[ip]:[port];
 
     }
+    
+    
+ 
+![argocd4](https://user-images.githubusercontent.com/68090443/227714797-73890957-c395-4c34-a50c-ec5e9992b292.PNG)
