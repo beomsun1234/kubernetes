@@ -57,3 +57,8 @@ proxy 서버 nginx에 ssl 설정 후 proxy 서버 /kiali 경로로 들어올 경
 
     }
 
+
+
+
+![kiali](https://user-images.githubusercontent.com/68090443/227899239-4d124c3a-896d-45fb-a4b5-104c561ac7dc.PNG)
+
