@@ -117,6 +117,7 @@ dev-park1이라는 user role-test라는 namespace에 모든 pod를 확인할 수
 
 ### 생성한 secret token으로 pod 요청
 
+
     kubectl describe secrets -n role-test dev-park1-secret
 
 #### dev-park1으로 role-test namespace pod 조회 시
@@ -136,3 +137,5 @@ dev-park1이라는 user role-test라는 namespace에 모든 pod를 확인할 수
     
 ![result2](https://user-images.githubusercontent.com/68090443/229475306-2aa559f4-7cb7-477a-8705-6a36bddafaba.PNG)
 
+
+## ClusterRoleBinding 
