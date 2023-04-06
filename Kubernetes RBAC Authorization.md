@@ -139,3 +139,7 @@ dev-park1이라는 user role-test라는 namespace에 모든 pod를 확인할 수
 
 
 ## ClusterRoleBinding 
+
+
+
+
