@@ -140,7 +140,7 @@ dev-park1이라는 user role-test라는 namespace에 모든 pod를 확인할 수
 
 ## ClusterRoleBinding 
 
-
+dev-park2 user에게 모든 네임스페이스 pod를 확인할 수 있도록 권한 부여
 
 
 
