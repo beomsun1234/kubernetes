@@ -9,6 +9,7 @@ Kubernetes RBAC Authorization은 'rbac.authorization.k8s.io' api 그룹을 사�
 ## API objects
 RBCA API는 4종류의 Kubernetes object를 선언한다. Role, ClusterRole, RoleBinding and ClusterRoleBinding.
 
+
 ### Role
 
 Role은 특정 namespace 안에서의 권한을 부여한다..
