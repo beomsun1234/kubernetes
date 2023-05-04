@@ -149,10 +149,53 @@ dev-park1이라는 user role-test라는 namespace에 모든 pod를 확인할 수
 
 dev-park2 user에게 모든 네임스페이스 pod를 확인할 수 있도록 권한 부여
 
+### ServiceAccount 생성
+
+        apiVersion: v1
+        kind: ServiceAccount
+        metadata:
+          name: dev-park2
+          namespace: default
+### ClusterRole 구성
+
+        apiVersion: rbac.authorization.k8s.io/v1
+        kind: ClusterRole
+        metadata:
+          namespace: default
+          name: pod-reader
+        rules:
+        - apiGroups: [""] # "" indicates the core API group
+          resources: ["pods","pods/log"]
+          verbs: ["get", "watch", "list"]
+
+### RoleBinding 구성
+
+        apiVersion: rbac.authorization.k8s.io/v1
+        # This role binding allows "jane" to read pods in the "default" namespace.
+        # You need to already have a Role named "pod-reader" in that namespace.
+        kind: ClusterRoleBinding
+        metadata:
+          name: read-pods
+          namespace: default
+        subjects:
+        # You can specify more than one "subject"
+        - kind: ServiceAccount
+          name: dev-park2 # "name" is case sensitive
+          namespace: default
+        roleRef:
+          # "roleRef" specifies the binding to a Role / ClusterRole
+          kind: ClusterRole #this must be Role or ClusterRole
+          name: pod-reader #this must match the name of the Role or ClusterRole you wish to bind to
+          apiGroup: rbac.authorization.k8s.io
 
 
+### ServiceAccount에 대한 Secret 생성
 
-
-
-
+        apiVersion: v1
+        kind: Secret
+        metadata:
+          name: dev-park-secret
+          annotations:
+            kubernetes.io/service-account.name: dev-park2
+        type: kubernetes.io/service-account-token
 
