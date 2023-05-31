@@ -55,7 +55,14 @@ nginx.yaml
 nodeSelector 부분에 pod를 스케줄링할 node의 label을 입력해줍니다. [key]: [value]
 
 
+## Affinity
+
+Taint가 Pod가 배포되지 못하도록 하는 정책이라면, affinity는 Pod를 특정 Node에 배포되도록 하는 정책이다. affinity는 Node를 기준으로 하는 Node affinity와, 다른 Pod가 배포된 위치(node) 를 기준으로 하는 Pod affinity 두 가지가 있다. 
+
 ## node affinity
+
+Pod가 특정 node로 배포되도록 하는 기능이다
+
 nodeSelector에 비해 다양한 조건을 명시할 수 있다.
 
 
@@ -119,7 +126,7 @@ nginx.yaml
                     values:
                     - service
 
-requiredDuringSchedulingIgnoredDuringExecution의 경우 아래 조건들이 일치하는 node에 적용하겠다는 의미이다. node label에 key값이 worker이고 값이 service인 조건에 만족해야한다.  operator: In의 경우 두개 이상의 values가 명시되어 있을 때 values 중 하나의 값을 가질 경우를 의미합니다.
+requiredDuringSchedulingIgnoredDuringExecution의 경우 아래 조건들이 일치하는 node에 적용하겠다는 의미이다. node label에 key "worker"이고 값이 service인 조건에 만족해야한다.  operator: In의 경우 두개 이상의 values가 명시되어 있을 때 values 중 하나의 값을 가질 경우를 의미합니다.
 
 ## reference
 https://waspro.tistory.com/582
