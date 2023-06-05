@@ -8,14 +8,14 @@ Taint(얼룩)는 Node에 정의할 수 있고, Toleration(용인)은 Pod에 정�
 ## Taint 설정 및 제거
 
 
-  format
-  kubectl taint nodes <node-name> <key>=<value>:<effect>
-  
-  -설정-
-  kubectl taint nodes node1 key1=value1:NoSchedule
-  
-  -제거-
-  kubectl taint nodes node1 key1=value1:NoSchedule-
+    format
+    kubectl taint nodes <node-name> <key>=<value>:<effect>
+
+    -설정-
+    kubectl taint nodes node1 key1=value1:NoSchedule
+
+    -제거-
+    kubectl taint nodes node1 key1=value1:NoSchedule-
 
   
 effect는 NoSchedule, PreferNoSchedule,NoExecute 3가지로 정의할 수 있다. 
