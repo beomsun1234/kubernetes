@@ -75,7 +75,7 @@ sysctl을 구성
 
 마스터 클러스터 생성
 
-    kubuadm init
+    kubeadm init
 
 설치 후 
 
