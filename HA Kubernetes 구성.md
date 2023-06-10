@@ -2,6 +2,7 @@
 
 ![스크린샷 2023-06-10 오후 6 57 35](https://github.com/beomsun1234/kubernetes/assets/68090443/a33a6150-da22-4848-a5ef-f8c6cd3fd257)
 
+![스크린샷 2023-06-10 오후 7 07 37](https://github.com/beomsun1234/kubernetes/assets/68090443/72855df8-31cc-419f-8b96-8b53794a2216)
 
 ##  LB 구성
 HA Proxy 사용하여 lb 구성
