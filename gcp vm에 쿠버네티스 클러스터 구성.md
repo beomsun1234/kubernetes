@@ -2,16 +2,16 @@
 
 ### step
 
-패키지 업그레이드
+### 패키지 업그레이드
 
     sudo apt update
     sudo apt upgrade
 
-스왑 끄기
+### 스왑 끄기
 
     sudo swapoff -a
 
-sysctl을 구성
+### sysctl을 구성
 
     sudo modprobe overlay
     sudo modprobe br_netfilter
@@ -24,11 +24,11 @@ sysctl을 구성
 
     sudo sysctl --system
 
-방화벽끄기
+### 방화벽끄기
 
     ufw disable
 
-도커 설치
+### 도커 설치
 
     sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -56,7 +56,33 @@ sysctl을 구성
     sudo systemctl restart docker
     sudo systemctl enable docker
 
-쿠버네티스 설치
+### 쿠버네티스 설치 new 버전
+
+1.Update the apt package index and install packages needed to use the Kubernetes apt repository:
+        
+        sudo apt-get update
+        # apt-transport-https may be a dummy package; if so, you can skip that package
+        sudo apt-get install -y apt-transport-https ca-certificates curl
+        
+2.Download the public signing key for the Kubernetes package repositories. The same signing key is used for all repositories so you can disregard the version in the URL:
+
+        
+        curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+        
+3.Add the appropriate Kubernetes apt repository:
+        
+        # This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
+        echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+4.Update the apt package index, install kubelet, kubeadm and kubectl, and pin their version:
+        
+        sudo apt-get update
+        sudo apt-get install -y kubelet kubeadm kubectl
+        sudo apt-mark hold kubelet kubeadm kubectl
+
+
+### 쿠버네티스 설치(Google-hosted package repository deprecated 되었다.. )
 
     sudo apt-get update && sudo apt-get install -y apt-transport-https curl
 
@@ -73,15 +99,15 @@ sysctl을 구성
 
      systemctl restart kubelet
 
-마스터 클러스터 생성
+### 마스터 클러스터 생성
 
     kubeadm init
 
-설치 후 
+### 설치 후 
 
     export KUBECONFIG=/etc/kubernetes/admin.conf
 
-마스터 노드에서 pod가 실행 가능하도록 설정
+### 마스터 노드에서 pod가 실행 가능하도록 설정
 
     kubectl taint nodes --all node-role.kubernetes.io/master-
 
