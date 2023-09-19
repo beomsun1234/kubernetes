@@ -28,7 +28,13 @@
 
     ufw disable
 
-### 도커 설치
+### 도커 설치 new
+
+    sudo apt-get update
+    sudo apt install docker.io 
+
+    
+### 도커 설치 old
 
     sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
