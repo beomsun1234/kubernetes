@@ -7,7 +7,33 @@
     sudo systemctl status docker
     sudo systemctl start docker
     
-## CRI 설치
+## CRI 설치(containerd)
+
+https://tuu-lx.tistory.com/3
+
+### 방법 1
+
+
+    sudo apt-get update
+    sudo apt-get install ca-certificates curl
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+### 2
+    
+    # Add the repository to Apt sources:
+    echo \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+      $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get update
+
+### 3
+
+    sudo apt-get install containerd.io
+
+### 방법 2----------------------------------------    
 
 ### 1.Docker GPG 키를 추가
     
@@ -42,3 +68,5 @@
 ## arm버전 설치
 
     https://velog.io/@tkfka/containerd-kubernetes-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-feat.-Arm
+
+    
